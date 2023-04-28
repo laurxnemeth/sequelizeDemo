@@ -2,11 +2,11 @@
 
 ### Express: error handling
 
-[] 404 Not Found Page
-[] Custom Error handling
+[x] 404 Not Found Page
+[x] 500 Custom Error handling
 
 ### Sequelize
 
-[] Eager Loading
-[] Class and instance methods
+[x] Eager Loading
+[x] Class and instance methods
 [] Many to Many relationship

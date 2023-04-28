@@ -14,6 +14,16 @@ app.get("/", (req, res) => {
 });
 
 //error handling???
+// 500 errors
+app.use((err, req, res, next) => {
+	console.error(err.stack);
+	res.status(500).send(err.message);
+});
+
+// 404 errors
+app.use((req, res, next) => {
+	res.status(404).send("Endpoint is not supported by app!");
+});
 
 app.listen(PORT, () => {
 	console.log(`Server has started on port http://localhost:${PORT}...`);
