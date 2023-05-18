@@ -19,12 +19,25 @@ driverRouter.get("/", async (req, res, next) => {
 driverRouter.get("/:id", async (req, res, next) => {
 	const { id } = req.params;
 	try {
-		const data = await Driver.findByPk(id);
+		// const data = await Driver.findByPk(id);
+		const data = await Driver.findOne({
+			where: { id: id },
+			include: [Car],
+		});
 		res.send(data);
 	} catch (err) {
 		next(err);
 	}
 });
+
+// {
+// name: Adam,
+// licence: 9137294
+// car: {
+//  id: 1,
+//
+//  }
+// }
 
 driverRouter.get("/:id/approved", async (req, res, next) => {
 	const { id } = req.params;
